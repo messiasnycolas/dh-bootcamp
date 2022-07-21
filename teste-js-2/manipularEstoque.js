@@ -9,14 +9,16 @@ let products = [
     { name: 'Keyboard', price: 30, quantity: 35, colors: ['white'] },
     { name: 'Gamepad', price: 30, quantity: 25, colors: ['black', 'silver'] },
     { name: 'Monitor', price: 200, quantity: 3, colors: [] },
-]
+];
 
 //1
 let id = 1;
 console.log('Produtos:'); 
 for (const product of products) {
     product.id = id++;
-    console.log('\t- ', product.name); //2
+
+//2
+    console.log('\t- ', product.name);
 }
 
 //3
