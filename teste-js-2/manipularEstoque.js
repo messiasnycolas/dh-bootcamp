@@ -11,13 +11,6 @@ let products = [
     { name: 'Monitor', price: 200, quantity: 3, colors: [] },
 ]
 
-// Usando a array acima, crie uma função para cada um dos seguintes requisitos:
-// 1. Adicione um ID exclusivo a cada produto começando em 1.
-// 2. Imprima o nome de cada um dos produtos no console.
-// 3. Imprima no console o produto com o id 3.
-// 4. Imprima no console os produtos com a cor “black”.
-// 5. Imprima no console os produtos que não possuem cor.
-
 //1
 let id = 1;
 console.log('Produtos:'); 
