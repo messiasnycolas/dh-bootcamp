@@ -18,7 +18,7 @@ function getProducts(_req, res) {
 
 function createProducts(req, res) {
     const { products: newProducts } = req.body;
-    if (!newProducts || !newProducts.length) res.status(400).send('Body must include at least one product');
+    if (!newProducts || !newProducts.length) return res.status(400).send('Body must include at least one product');
 
     let maxId = products.reduce((acc, curr) => Math.max(acc, curr.id), 1);
 
@@ -49,7 +49,7 @@ function createProducts(req, res) {
 function updateProduct(req, res) {
     const id = Number(req.params.id);
     const { body } = req;
-    if (!id || !body) res.status(400).send('ID and Body cannot be empty');
+    if (!id || !body) return res.status(400).send('ID and Body cannot be empty');
 
     let indexToUpdate;
     const productToUpdate = products.find((p, index) => {
@@ -58,7 +58,7 @@ function updateProduct(req, res) {
             return true
         } else return false
     });
-    if (!productToUpdate) res.status(404).send('Product not found');
+    if (!productToUpdate) return res.status(404).send('Product not found');
 
     for (property in productToUpdate) {
         if (body[property]) {
@@ -72,7 +72,7 @@ function updateProduct(req, res) {
 
 function deleteProduct(req, res) {
     const id = Number(req.params.id);
-    if (!id) res.status(400).send('ID cannot be empty and begins at 1');
+    if (!id) return res.status(400).send('ID cannot be empty and begins at 1');
 
     let indexToDelete;
     const productToDelete = products.find((p, index) => {
@@ -81,7 +81,7 @@ function deleteProduct(req, res) {
             return true
         } else return false
     });
-    if (!productToDelete) res.status(404).send('Product not found');
+    if (!productToDelete) return res.status(404).send('Product not found');
 
     products.splice(indexToDelete, 1);
     res.status(204).end();
